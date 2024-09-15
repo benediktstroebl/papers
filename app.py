@@ -47,12 +47,16 @@ if uploaded_files:
             # Remove the file if it couldn't be added to Docs
             os.remove(file_path)
 
+# Model selection
+model_options = ["gpt-4o-mini", "gpt-4o", "gpt-3.5-turbo"]
+selected_model = st.selectbox("Select the model to use:", model_options)
+
 # Question input
 question = st.text_input("Ask a question about the uploaded papers:")
 
 settings = Settings()
-settings.llm = "gpt-4o-mini"
-settings.summary_llm = "gpt-4o-mini"
+settings.llm = selected_model
+settings.summary_llm = selected_model
 
 if question:
     if st.session_state.docs.docs:
