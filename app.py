@@ -2,6 +2,8 @@ import streamlit as st
 import os
 from paperqa import Docs, Settings, ask
 import shutil
+import weave
+weave.init("paperqa")
 
 # Define the directory to save uploaded papers
 UPLOAD_DIR = "./"
